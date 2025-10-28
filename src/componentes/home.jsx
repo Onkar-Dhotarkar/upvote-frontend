@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Form from './form';
 import FormList from './formlist';
-import { MessageSquare, Users, TrendingUp, Rocket, ArrowRight, Star } from 'lucide-react';
+import { MessageSquare, Users, TrendingUp, Rocket, ArrowRight, Star, Code, Database, Layout } from 'lucide-react';
 import { fetchFeedbacks, createFeedback, voteFeedback, updateFeedback, deleteFeedback, API_URL } from '../api';
 import Toast from './toast';
 
@@ -122,6 +122,30 @@ const Home = () => {
     { value: "24h", label: "Response Time" }
   ];
 
+  const teamMembers = [
+    {
+      name: "Onkar Dhotarkar",
+      role: "Team Lead & Full Stack Developer",
+      rollNo: "32511",
+      expertise: "Project Architecture & Backend Development",
+      icon: <Code className="w-5 h-5" />
+    },
+    {
+      name: "Ramprasad Udhe",
+      role: "Frontend Developer",
+      rollNo: "32565",
+      expertise: "UI/UX Design & React Development",
+      icon: <Layout className="w-5 h-5" />
+    },
+    {
+      name: "Rajat Tope",
+      role: "Backend Developer",
+      rollNo: "32566",
+      expertise: "Database Design & API Development",
+      icon: <Database className="w-5 h-5" />
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Toast toasts={toasts} onClose={closeToast} />
@@ -180,7 +204,7 @@ const Home = () => {
               </div>
 
               {/* Features */}
-              <div id="features" className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade">
+              <div id="features" className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20 animate-fade">
                 {features.map((feature, index) => (
                   <div
                     key={index}
@@ -193,6 +217,65 @@ const Home = () => {
                     <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Team Members Section */}
+              <div id="team" className="max-w-5xl mx-auto">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+                    Meet Our Team
+                  </h2>
+                  <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    The talented developers behind this feedback platform
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  {teamMembers.map((member, index) => (
+                    <div
+                      key={index}
+                      className="bg-white/60 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 group hover:border-indigo-200"
+                    >
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                          {member.icon}
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-800 text-center mb-2">{member.name}</h3>
+                      <div className="text-center mb-3">
+                        <span className="inline-block bg-indigo-100 text-indigo-700 text-sm font-medium px-3 py-1 rounded-full">
+                          Roll No: {member.rollNo}
+                        </span>
+                      </div>
+                      <p className="text-slate-700 font-medium text-center mb-2">{member.role}</p>
+                      <p className="text-slate-600 text-sm text-center leading-relaxed">{member.expertise}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Project Info */}
+                <div className="mt-12 bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 rounded-2xl p-8 text-center">
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4">About This Project</h3>
+                  <p className="text-slate-600 mb-4 leading-relaxed">
+                    This feedback platform is built with modern web technologies including React, Node.js, 
+                    and MongoDB. Our team has worked together to create a seamless experience for collecting 
+                    and managing community feedback with real-time updates and interactive features.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4 mt-6">
+                    <span className="bg-white px-4 py-2 rounded-lg text-slate-700 font-medium text-sm shadow-sm">
+                      React.js
+                    </span>
+                    <span className="bg-white px-4 py-2 rounded-lg text-slate-700 font-medium text-sm shadow-sm">
+                      Node.js
+                    </span>
+                    <span className="bg-white px-4 py-2 rounded-lg text-slate-700 font-medium text-sm shadow-sm">
+                      MongoDB
+                    </span>
+                    <span className="bg-white px-4 py-2 rounded-lg text-slate-700 font-medium text-sm shadow-sm">
+                      Tailwind CSS
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
