@@ -97,23 +97,7 @@ const Home = () => {
     }
   };
 
-  const features = [
-    {
-      icon: <MessageSquare className="w-6 h-6" />,
-      title: "Share Feedback",
-      description: "Submit your ideas and suggestions to help us improve"
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Community Driven",
-      description: "Vote on features that matter most to the community"
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Track Progress",
-      description: "See which suggestions are being implemented"
-    }
-  ];
+
 
   const stats = [
     { value: "500+", label: "Active Users" },
@@ -133,15 +117,15 @@ const Home = () => {
     {
       name: "Ramprasad Udhe",
       role: "Frontend Developer",
-      rollNo: "32565",
-      expertise: "UI/UX Design & React Development",
+      rollNo: "32567",
+      expertise: "UI/UX Design ",
       icon: <Layout className="w-5 h-5" />
     },
     {
       name: "Rajat Tope",
       role: "Backend Developer",
       rollNo: "32566",
-      expertise: "Database Design & API Development",
+      expertise: "API Development",
       icon: <Database className="w-5 h-5" />
     }
   ];
@@ -203,21 +187,7 @@ const Home = () => {
                 ))}
               </div>
 
-              {/* Features */}
-              <div id="features" className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20 animate-fade">
-                {features.map((feature, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/60 backdrop-blur-sm border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 group hover:border-indigo-200"
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-slate-800 mb-2">{feature.title}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
-                  </div>
-                ))}
-              </div>
+              
 
               {/* Team Members Section */}
               <div id="team" className="max-w-5xl mx-auto">
